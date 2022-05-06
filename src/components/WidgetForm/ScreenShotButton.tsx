@@ -19,11 +19,14 @@ export function ScreenshotButton({
     const canvas = await html2canvas(document.querySelector('html')!);
     const base64image = canvas.toDataURL('image/png');
 
+    // console.log(`base64image ${base64image}`);
+
     onScreenshotTook(base64image);
     setIsTakingScreenshot(false);
   }
 
   if (screenshot) {
+
     return (
       <button
         type="button"
@@ -33,7 +36,7 @@ export function ScreenshotButton({
         style={{
           backgroundImage: `url(${screenshot})`,
           backgroundPosition: 'right bottom',
-          backgroundSize: 100,
+          backgroundSize: 180,
         }}
       >
         <Trash weight="fill" />
